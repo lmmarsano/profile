@@ -1,0 +1,12 @@
+name: root
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - setuptools
+  - wheel
+  - python-language-server[all]
+  - cython
+  - pip:
+    - pyls-mypy

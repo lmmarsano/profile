@@ -1,0 +1,18 @@
+#!/bin/bash
+rsz() {
+	if [[ -t 0 ]]
+	then
+		local IFS='[;' escape geometry x y
+		echo -n 7[r[999\;999H[6n8
+		read -sd R escape geometry
+		x=${geometry##*;} y=${geometry%%;*}
+		if [[ ${COLUMNS} -eq ${x} && ${LINES} -eq ${y} ]]
+		then
+			echo ${TERM} ${x}×${y}
+		else
+			echo ${COLUMNS}×${LINES} → ${x}×${y}
+			stty cols ${x} rows ${y}
+		fi
+	fi
+}
+rsz "$@"

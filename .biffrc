@@ -1,0 +1,2 @@
+echo New mail: $H{From}	${Subject}	$B(80,1)
+exec inc

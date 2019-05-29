@@ -1,0 +1,6 @@
+!emacs.font: Consolas
+!emacs.font: Source Code Pro
+emacs.ReverseVideo: on
+XTerm*metaSendsEscape: true
+XTerm*reverseVideo: true
+XTerm.vt100.faceName: Ubuntu Mono

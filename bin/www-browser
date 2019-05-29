@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+if [[ \ $* == *\ http?(s)://* ]]
+then
+	exec cmd.exe /c start "$@"
+else
+	exec /usr/bin/${0##*/} "$@"
+fi

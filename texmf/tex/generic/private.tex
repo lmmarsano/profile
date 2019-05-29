@@ -1,0 +1,47 @@
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setmathfont{TeX Gyre DejaVu Math}
+\setmathfont{STIX Two Math}[range={`▿,`■-`◿}]
+\renewcommand{\familydefault}{\sfdefault}
+% \let\familydefault\sfdefault
+\makeatletter
+\input lambda.sty
+\def\Listize[#1]%
+{\Listize@#1,]}
+\def\Listize@#1,#2]%
+{\TeXif{\emptycheck{#2}\ifempty}%
+  {\Singleton{#1}}%
+  {\Cons{#1}{\Listize@#2]}}}
+\def\@empty{}
+\newif\ifempty
+\def\emptycheck#1{%
+  {\def\ign@re{#1}%
+    \ifx\@empty\ign@re}%
+      \emptytrue
+    \else
+      \emptyfalse
+    \fi
+}
+\def\IsEmpty#1{\TeXif{{\def\ign@re{#1}\ifx\@empty\ign@re}}}
+\newtoks\skipn@xt
+\skipn@xt{\let\ign@re}
+\def\delimit#1#{\left#1\bgroup\aftergroup\right\the\skipn@xt}
+\def\enclose#1#2#{\left#1\bgroup\aftergroup\right\aftergroup#2\the\skipn@xt}
+\def\Apply#1{\Listize#1\@Apply{}}
+\def\@Apply#1{#1\Foldr\,{}}
+\makeatother
+\let\relation\textnormal
+\def\dom{\relation{dom}}
+\def\im{\relation{im}}
+\def\image#1#2{#1\delimit[{#2}]}
+\def\comp{\relation{comp}}
+\def\id{\relation{id}}
+\def\tuple{\enclose⟨⟩}
+\def\RelBuild#1#2{\left⟨#1\,\middle|\,#2\right⟩}
+\def\compose#1{#1∘}
+\Umathchardef\Ftuple="2"0`▵\relax
+\Umathchardef\Fdouble="0"0`Δ\relax
+\Umathchardef\Fselect="2"0`▿\relax
+\Umathchardef\Funtag="0"0`∇\relax
+\def\cata#1{ℂ\delimit({#1})}

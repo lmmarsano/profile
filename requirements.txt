@@ -1,0 +1,6 @@
+pip
+setuptools
+wheel
+python-language-server[all]
+pyls-mypy
+cython

@@ -1,0 +1,4 @@
+# -*- mode: conf-space; -*-
+mimetypes .mime.types;
+# Use this program to display files.
+# metamail <prog: string>;

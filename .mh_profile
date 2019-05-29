@@ -1,0 +1,16 @@
+Path: /home/luism/Mail
+Alternate-Mailboxes: luis.marsano@gmail.com
+#Signature: Luis Marsano
+prompter-next: editor
+Draft-Folder: +draft
+Sequence-Negation: n0
+Unseen-Sequence: u0
+Charset: auto
+Aliasfile: aliases
+moreproc: pager
+showproc: mhn -show -file
+automhnproc: mhn
+mhn-suffix-text/html: .html
+mhn-show-text/html: mimeview %F
+inc: -fi imaps://imap.gmail.com
+#:-fi maildir://~/Maildir
